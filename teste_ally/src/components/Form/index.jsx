@@ -35,7 +35,7 @@ const Form = () => {
     cellphone: yup.string().required("Telefone obrigatório"),
     cpf: yup.string().required("CPF obrigatório"),
     country: yup.array().required("País Obrigatório").nullable(),
-    city: yup.array().nullable().required("Cidade Obrigatória"),
+    city: yup.array().required("Cidade Obrigatória").nullable(),
   });
 
   const {
@@ -103,10 +103,12 @@ const Form = () => {
             label="Telefone"
             {...register("cellphone")}
           />
+
           <TextField
             variant="outlined"
-            helperText={errors.cpf?.message}
             label="CPF"
+            placeholder="000.000.000-00"
+            helperText={errors.cpf?.message}
             {...register("cpf")}
           />
         </Column>
@@ -163,7 +165,7 @@ const Form = () => {
                 <MenuItem value="No cities">Sem cidades disponiveis</MenuItem>
               )
             ) : (
-              <MenuItem>Primeiro escolha um país</MenuItem>
+              <MenuItem disabled>Primeiro escolha um país</MenuItem>
             )}
           </Select>
           <FormHelperText>{errors.city?.message}</FormHelperText>

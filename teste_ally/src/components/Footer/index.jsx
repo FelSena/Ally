@@ -8,6 +8,10 @@ const Footer = () => {
       <Link underline="none" href="https://www.linkedin.com/in/felipeasena/">
         Felipe Sena
       </Link>
+      <span>para</span>
+      <Link underline="none" href="https://www.allyhub.co/">
+        AllyHub
+      </Link>
     </FooterBar>
   );
 };
